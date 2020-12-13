@@ -5,7 +5,7 @@
 4. Eclipse
 5. TestNG
 
-Gmail has restrictions to sign in if the browser is launched with selenium. 
+Gmail has RESTRICTIONS to sign in if the browser is launched with selenium. 
  As a workaround, I have used to login to a app that supports "login With Google" to create a google session and later launch the gmail home page directly.  
 
 FRAMEWORK DESIGN:
