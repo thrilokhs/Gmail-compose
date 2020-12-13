@@ -1,7 +1,6 @@
 package helper;
 
 import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Generic extends Base {
-	
+
 	public boolean clickElement(By by) throws IOException {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -22,8 +21,8 @@ public class Generic extends Base {
 			e.printStackTrace();
 			return false;
 		}
-	}	
-	
+	}
+
 	public boolean inputText(By by, String data) throws Exception {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -40,7 +39,7 @@ public class Generic extends Base {
 			return false;
 		}
 	}
-	
+
 	public boolean VerifyText(String Expected, By by) {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
