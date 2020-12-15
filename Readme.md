@@ -1,3 +1,5 @@
+ # Focus area - Gmail Compose
+ 
  PRE REQUISITE:
 1. Java 8
 2. Selenium Webdriver
@@ -5,8 +7,17 @@
 4. Eclipse
 5. TestNG
 
-Gmail has RESTRICTIONS to sign in if the browser is launched with selenium. 
+NOTE - Gmail has RESTRICTIONS to sign in if the browser is launched with selenium. 
  As a workaround, I have used to login to a app that supports "login With Google" to create a google session and later launch the gmail home page directly.  
+ 
+ Compose features available:
+ - Adding emails in To, Cc and Bcc
+ - Adding Attachments
+ - Scheduling emails to next week
+ - Verifying email delivery 
+ - Select text font for email body (I noticed a defect in gmail where the initial font selection is not applied) 
+ - Error verification while sending a mail without an email id
+ 
 
 FRAMEWORK DESIGN:
 There are 3 DIFFERENT PACKAGES ARE USED :
