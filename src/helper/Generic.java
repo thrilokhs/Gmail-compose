@@ -40,6 +40,20 @@ public class Generic extends Base {
 		}
 	}
 
+	public boolean addAttachment(By by, String data) throws Exception {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 15);
+			WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(by));
+			if (e1.isDisplayed()) {
+				driver.findElement(By.xpath("//input[@name='Filedata']")).sendKeys(data); // Do not work from PageObject
+			}
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 	public boolean VerifyText(String Expected, By by) {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));

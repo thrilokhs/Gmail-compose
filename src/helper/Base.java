@@ -13,25 +13,27 @@ public class Base {
 	public static GmailLogin gl = new GmailLogin();
 	public static WebDriver driver;
 
-	@BeforeSuite
-	public static WebDriver initializeDriver() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "//Users//t.somashekar//Desktop//PER//Work//chromedriver");
+	@BeforeSuite(description = "This initialises the chromedriver which can be used by all tests")
+	public WebDriver initializeDriver() throws Exception {
+		
+		System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		
 		return driver;
 	}
-
-	@BeforeClass
+	
+	@BeforeClass(description = "This logs into the gmail")
 	public static void login() throws Exception {
 		gl.Login();
 	}
 
-	@AfterClass
+	@AfterClass(description = "This logs out from the gmail")
 	public static void logout() throws Exception {
 		gl.Logout();
 	}
 
-	@AfterSuite
+	@AfterSuite(description = "This closes the chromedriver")
 	public static void closeBrowser() {
 		driver.close();
 	}

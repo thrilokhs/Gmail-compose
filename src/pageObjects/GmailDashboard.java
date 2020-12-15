@@ -8,7 +8,7 @@ public class GmailDashboard extends Base {
 
 	Generic gen = new Generic();
 
-	//This clicks on the Compose button from the Gmail landing page/Dashboard
+	// This clicks on the Compose button from the Gmail landing page/Dashboard
 	public void clickOnCompose() throws Exception {
 		By compose = By.xpath("//div[text()='Compose']");
 		gen.clickElement(compose);
