@@ -10,22 +10,26 @@ import pageObjects.GmailLogin;
 
 public class Base {
 
+	// Provide the Gmail account credentials here
+	static String emailid = "3lokhs37@gmail.com";
+	static String password = "Passw0rd123$";
+
 	public static GmailLogin gl = new GmailLogin();
 	public static WebDriver driver;
 
 	@BeforeSuite(description = "This initialises the chromedriver which can be used by all tests")
 	public WebDriver initializeDriver() throws Exception {
-		
+
 		System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		
+
 		return driver;
 	}
-	
+
 	@BeforeClass(description = "This logs into the gmail")
 	public static void login() throws Exception {
-		gl.Login();
+		gl.Login(emailid, password);
 	}
 
 	@AfterClass(description = "This logs out from the gmail")

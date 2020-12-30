@@ -1,6 +1,7 @@
 package Testcases;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import helper.Base;
 import pageObjects.GmailCompose;
@@ -21,6 +22,7 @@ public class SendEmail extends Base {
 	String ccEmail = "3lokhs37@gmail.com";
 	String bccEmail = "3lokhs37+1@gmail.com";
 
+	@Ignore
 	@Test(description = "Selecting an email from the auto suggested list ")
 	public void select_email_from_the_dynamic_suggestion() throws Exception {
 		dashBoard.clickOnCompose();
@@ -31,6 +33,7 @@ public class SendEmail extends Base {
 		compose.clickOnSend();
 	}
 
+	@Ignore
 	@Test(description = "Sends email using To, Cc & Bcc along with an attachment")
 	public void send_email_with_To_Cc_Bcc_and_attachment() throws Exception {
 		dashBoard.clickOnCompose();
@@ -55,11 +58,13 @@ public class SendEmail extends Base {
 		compose.enterEmailText(Emailbody);
 		compose.clickOnSignature();
 		compose.addSignature("Work"); // Provide the Signature label that needs to be chosen
-		compose.scheduleSendMonday(); // Email will be sent on the coming Monday
+		compose.scheduleSendMonday();// Email will be sent on the coming Monday
+		Thread.sleep(2000); // Sleep to complete the process of sending email
 	}
 
 	// This test is dependent on the previous test which sends the email to the
 	// logged in email id
+	@Ignore
 	@Test(description = "To Check if the email is received by the recipient", dependsOnMethods = {
 			"send_email_with_To_Cc_Bcc_and_attachment" })
 	public void verify_email_delivery() throws Exception {
@@ -67,6 +72,7 @@ public class SendEmail extends Base {
 		Assert.assertTrue(emailrecvstatus);
 	}
 
+	@Ignore
 	@Test(description = "Checks the error message when trying to send with no email id entered")
 	public void no_recepients_added() throws Exception {
 		dashBoard.clickOnCompose();

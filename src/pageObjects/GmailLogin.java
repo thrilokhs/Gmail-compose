@@ -10,15 +10,15 @@ public class GmailLogin extends Base {
 
 	By logoutMenu = By.xpath("//img[@class='gb_Da gbii']");
 	By btnSignout = By.xpath("//a[text()='Sign out']");
-	By emailId = By.xpath("//input[@type='email']");
+	By txtEmail = By.xpath("//input[@type='email']");
 	By next = By.xpath("//div[@class='VfPpkd-RLmnJb']");
-	By password = By.xpath("//input[@type='password']");
+	By TxtPassword = By.xpath("//input[@type='password']");
 	By altLogin = By.xpath("//a[@class='login-link s-btn s-btn__filled py8 js-gps-track']");
 	By loginWithGoogle = By.xpath("//button[@data-provider='google']");
 
 	// This enters the email address to be logged in
-	public void enterEmail() throws Exception {
-		generic.inputText(emailId, "3lokhs37@gmail.com");
+	public void enterEmail(String emailid) throws Exception {
+		generic.inputText(txtEmail, emailid);
 	}
 
 	// This clicks on the Next button after entering the email/password
@@ -27,8 +27,8 @@ public class GmailLogin extends Base {
 	}
 
 	// This enters the corresponding password for the email id to be logged in
-	public void enterPassword() throws Exception {
-		generic.inputText(password, "Passw0rd123$");
+	public void enterPassword(String password) throws Exception {
+		generic.inputText(TxtPassword, password);
 	}
 
 	// This clicks on the login button of the stackoverflow website
@@ -47,14 +47,14 @@ public class GmailLogin extends Base {
 	// This creates a login session through stackoverflow.com and takes to the
 	// logged
 	// in Gmail dashboard page of the user
-	public void Login() throws Exception {
+	public void Login(String emailid, String password) throws Exception {
 
 		driver.navigate().to("https://stackoverflow.com/");
 		this.clickAltLogin();
 		this.clickloginWithGoogle();
-		this.enterEmail();
+		this.enterEmail(emailid);
 		this.clickNext();
-		this.enterPassword();
+		this.enterPassword(password);
 		this.clickNext();
 		Thread.sleep(2000);// sleep is used to wait for the gmail session to be established
 		driver.get("https://mail.google.com/mail/u/0/#inbox");
