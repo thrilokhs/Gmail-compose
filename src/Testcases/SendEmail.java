@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import helper.Base;
 import pageObjects.GmailCompose;
 import pageObjects.GmailDashboard;
-import org.apache.commons.validator.routines.EmailValidator;
 
 public class SendEmail extends Base {
 	GmailDashboard dashBoard = new GmailDashboard();
